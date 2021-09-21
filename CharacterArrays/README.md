@@ -96,14 +96,14 @@ _Este elemento intrinseco en las cadenas fue implementado por cuestiones de segu
 
 _Al igual que con el resto de matrices, podemos inicializar estas de distintas maneras siguiendo la estructura comentada anteriormente:_
 
--_Igualando la matriz a la cadena, asignandole o no un tamaño. De esta manera el caracter nulo viene implicito._
+- _Igualando la matriz a la cadena, asignandole o no un tamaño. De esta manera el caracter nulo viene implicito._
 
 ```
 char P[] = "cadena", char F[] = "matriz de caracteres";
 char P[1000] = "cadena", char F[1000] = "matriz de caracteres";
 ```
 
--_Igualando la matriz a la cadena caracter por caracter. De esta manera si hay que declarar el caracter nulo._
+- _Igualando la matriz a la cadena caracter por caracter. De esta manera si hay que declarar el caracter nulo._
 
 ```
 char P[] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
