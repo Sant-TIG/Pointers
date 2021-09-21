@@ -1,2 +1,1 @@
 # Introduction to Pointers
-  Para entender los punteros primero hay que tener claro como se almacenan en la memoria del ordenador los distintos tipos de datos que existen. Primero habria que aclarar que cuando ejecutamos un programa, este se ejecuta utilizando la memoria de acceso aleatorio o RAM, por lo tanto siempre que hagamos referencia a algun espacio de memoria en estas lecciones estaremos refiriendonos a espacios de memoria en la RAM.
