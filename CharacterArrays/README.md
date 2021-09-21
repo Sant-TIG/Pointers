@@ -1,10 +1,10 @@
-# Matrices de Caracteres y Punteros
+# 8. Matrices de Caracteres y Punteros ⛓️
 
 _El concepto de matriz de caracteres es muy similar al concepto de cadena de caracteres ya que ambas
 estan compuestas por un conjunto de caracteres encadenados que forman una palabra o una frase. Antes
 de entender que representa una matriz de caracteres hay que entender las cadenas de caracteres._
 
-## Definiciones 📚
+## 8.1 Definiciones 📚
 
 _En C, una **cadena** es una secuencia de caracteres terminada por el caracter nulo_ **'\0'** _. Esta
 secuencia puede formar una palabra o una frase y se suelen utilizar para crear programas legibles y con
@@ -24,7 +24,7 @@ Ejemplos de Matrices de Caracteres
 char C1[] = "cadena";
 char C2[] = "matriz de caracteres;
 ```
-## Declaracion ✍️
+## 8.2 Declaracion ✍️
 _Como bien hemos definido anteriormente, una cadena es una matriz unidimensional, por lo que a la hora
 de **declararla** seguiremos las mismas reglas que las matrices. La **estructura** que hay que seguir
 para **declarar** una cadena es la siguiente:_ **"tipo nombre[tamaño]"**.
@@ -43,33 +43,72 @@ tamaño igual a la sumatoria del peso de todos sus elementos. Como los elementos
 tipo de matrices son de tipo 'caracter', cada elemento sumara 1 byte de espacio. De esta manera, el
 ejemplo anterior se almacenaria en la memoria de la siguiente manera:_
 
-### Memoria RAM 💾
+### 8.2.1 Memoria RAM 💾
 
-| Direccion | Contenido |
-| --- | --- |
-| 220 |   |
-| 219 |   |
-| 213 | C |
-| 212 |   |
-| 211 |   |
-| 210 |   |
+_Estas tablas representan un espacio ficticio de la memoria RAM reservada por nuestro ordenador cuando se encuentra con la cadena del ejemplo anterior durante la ejecucion de un programa._
 
-| Direccion | Contenido | Indice |
+| Direccion | Contenido | Tamaño |
 | --- | --- | --- |
-| 220 |   |   |
-| 219 |   |   |
-| 218 |   | C[5] |
-| 217 |   | C[4] |
-| 216 |   | C[3] |
-| 215 |   | C[2] |
-| 214 |   | C[1] |
-| 213 |   | C[0] |
-| 212 |   |   |
-| 211 |   |   |
-| 210 |   |   |
+| ++ |   | ++ |
+| 218 |   | 1 byte |
+| 213 - 217 | C | 5 bytes |
+| 212 |   | 1 byte |
+| -- |   | -- |
 
-## Inicialización 🖨️
+_Aqui se puede ver que el ordenador reserva un espacio de 5 bytes comprendido entre 213 y 217 inclusive para la matriz C._
 
+| Direccion | Contenido | Elemento | Tamaño |
+| --- | --- | --- | --- |
+| ++ |   |   | ++ |
+| 218 |   |   | 1 byte |
+| 217 |   | C[4] | 1 byte |
+| 216 |   | C[3] | 1 byte |
+| 215 |   | C[2] | 1 byte |
+| 214 |   | C[1] | 1 byte |
+| 213 |   | C[0] | 1 byte |
+| 212 |   |   | 1 byte |
+| -- |   |   | -- |
+
+_Aqui se puede ver el espacio reservado distribuido por cada elemento que forma la matriz C._
+
+| Dirección | 212 | 213 | 214 | 215 | 216 | 217 | 218 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Elemento** |   | C[0] | C[1] | C[2] | C[3] | C[4] |   |
+| **Valor** |   |   |   |   |   |   |   |
+
+_Esta tabla es una representacion horizontal de la de arriba._
+
+## 8.3 Inicialización 🖨️
+
+_Hay dos requisitos que debemos cumplir a la hora de **inicializar una cadena**:_
+- _Que los elementos que la constituyen la matriz sean caracteres, es decir, de tipo 'caracter(char)._
+- _Que la matriz sea lo suficientemente larga como para almacenar la cadena dentro de ella. Para ello, deberá tener un tamaño igual al de la cadena mas uno, para almacenar el caracter nulo **'\0'**._
+
+---
+
+### 8.3.1 Caracter Nulo '\0' 🛑
+
+_El caracter nulo es indispensable a la hora de inicializar y trabajar de forma correcta con las cadenas. Gracias a este caracter, que no es imprimible, el ordenador puede identificar cuando se termina la cadena, pudiendo diferenciar así entre distintas cadenas._
+
+_Este elemento intrinseco en las cadenas fue implementado por cuestiones de seguridad relacionados con la longitud de la cadena. Si no se añade el caracter nulo al final de cada cadena, los espacios de memoria adyacentes a la cadena seran tratadas tambien como parte de la misma. Esto puede llevar a fallos o fuyugas de informacion interna del programa. Es muy importante que este tipo de errores sean prevenidos._
+
+---
+
+_Al igual que con el resto de matrices, podemos inicializar estas de distintas maneras siguiendo la estructura comentada anteriormente:_
+
+-_Igualando la matriz a la cadena, asignandole o no un tamaño. De esta manera el caracter nulo viene implicito._
+
+```
+char P[] = "cadena", char F[] = "matriz de caracteres";
+char P[1000] = "cadena", char F[1000] = "matriz de caracteres";
+```
+
+-_Igualando la matriz a la cadena caracter por caracter. De esta manera si hay que declarar el caracter nulo._
+
+```
+char P[] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
+char P[1000] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
+```
 
 
 
