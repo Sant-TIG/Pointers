@@ -31,7 +31,8 @@ para **declarar** una cadena es la siguiente:_ **"tipo nombre[tamaño]"**.
 
 ```
 Ejemplo de una Declaración
-char C[5];
+char C1[7];
+char C2[21];
 ```
 
 _El **tipo** siempre ha de ser **char** ya que los elementos que formaran la matriz seran de tipo 
@@ -40,12 +41,11 @@ de elementos de la cadena._
 
 _Al **declarar** una matriz de caracteres lo que estamos haciendo es reservar un espacio de memoria de
 tamaño igual a la sumatoria del peso de todos sus elementos. Como los elementos que constituyen este
-tipo de matrices son de tipo 'caracter', cada elemento sumara 1 byte de espacio. De esta manera, el
-ejemplo anterior se almacenaria en la memoria de la siguiente manera:_
+tipo de matrices son de tipo 'caracter', cada elemento sumara 1 byte de espacio.
 
 ### 8.2.1 Memoria RAM 💾
 
-_Estas tablas representan un espacio ficticio de la memoria RAM reservada por nuestro ordenador cuando se encuentra con la cadena del ejemplo anterior durante la ejecucion de un programa._
+_Estas tablas representan un espacio ficticio de la memoria RAM reservada por nuestro ordenador cuando se encuentra con la cadena siguiente cadena: 'char C[5]' durante la ejecucion de un programa._
 
 | Direccion | Contenido | Tamaño |
 | --- | --- | --- |
@@ -99,15 +99,15 @@ _Al igual que con el resto de matrices, podemos inicializar estas de distintas m
 - _Igualando la matriz a la cadena, asignandole o no un tamaño. De esta manera el caracter nulo viene implicito._
 
 ```
-char P[] = "cadena", char F[] = "matriz de caracteres";
-char P[1000] = "cadena", char F[1000] = "matriz de caracteres";
+char C1[] = "cadena", char C2[] = "matriz de caracteres";
+char C1[1000] = "cadena", char C2[1000] = "matriz de caracteres";
 ```
 
 - _Igualando la matriz a la cadena caracter por caracter. De esta manera si hay que declarar el caracter nulo._
 
 ```
-char P[] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
-char P[1000] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
+char C1[] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
+char C1[1000] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
 ```
 
 
