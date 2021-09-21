@@ -80,7 +80,7 @@ _Esta tabla es una representacion horizontal de la de arriba._
 
 ## 8.3 Inicialización 🖨️
 
-_Hay dos requisitos que debemos cumplir a la hora de **inicializar una cadena**:_
+_Hay **dos requisitos** que cumplir a la hora de **inicializar una cadena**:_
 - _Que los elementos que la constituyen la matriz sean caracteres, es decir, de tipo 'caracter(char)._
 - _Que la matriz sea lo suficientemente larga como para almacenar la cadena dentro de ella. Para ello, deberá tener un tamaño igual al de la cadena mas uno, para almacenar el caracter nulo **'\0'**._
 
@@ -110,18 +110,39 @@ char C1[] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
 char C1[1000] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
 ```
 
+### 8.2.1 Memoria RAM 💾
 
+_Estas tablas representan un espacio ficticio de la memoria RAM reservada por nuestro ordenador cuando se encuentra con la siguiente cadena: 'char C[7] = "cadena"' durante la ejecucion de un programa._
 
-| Direccion | Memoria RAM | Indice |
+| Direccion | Contenido | Tamaño |
 | --- | --- | --- |
-| 220 |   |   |
-| 219 |   |   |
-| 218 | a | C[5] |
-| 217 | n | C[4] |
-| 216 | e | C[3] |
-| 215 | d | C[2] |
-| 214 | a | C[1] |
-| 213 | c | C[0] |
-| 212 |   |   |
-| 211 |   |   |
-| 210 |   |   |
+| ++ |   | ++ |
+| 220 |   | 1 byte |
+| 213 - 219 | C | 7 bytes |
+| 212 |   | 1 byte |
+| -- |   | -- |
+
+_Aqui se puede ver que el ordenador reserva un espacio de 7 bytes comprendido entre 213 y 219 inclusive para la matriz C._
+
+| Direccion | Contenido | Elemento | Tamaño |
+| --- | --- | --- | --- |
+| ++ |   |   | ++ |
+| 218 |   |   | 1 byte |
+| 217 | '\0' | C[6] | 1 byte |
+| 217 | 'a' | C[5] | 1 byte |
+| 217 | 'n' | C[4] | 1 byte |
+| 216 | 'e' | C[3] | 1 byte |
+| 215 | 'd' | C[2] | 1 byte |
+| 214 | 'a' | C[1] | 1 byte |
+| 213 | 'c' | C[0] | 1 byte |
+| 212 |   |   | 1 byte |
+| -- |   |   | -- |
+
+_Aqui se puede ver el espacio reservado distribuido por cada elemento que forma la matriz C._
+
+| Dirección | 212 | 213 | 214 | 215 | 216 | 217 | 218 | 219 | 220 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Elemento** |   | C[0] | C[1] | C[2] | C[3] | C[4] | C[5] | C[6] |   |
+| **Valor** |   | 'c' | 'a' | 'd' | 'e' | 'n' | 'a' | '\0' |   |
+
+_Esta tabla es una representacion horizontal de la de arriba._
