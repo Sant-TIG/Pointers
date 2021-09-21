@@ -90,7 +90,7 @@ _Hay dos requisitos que debemos cumplir a la hora de **inicializar una cadena**:
 
 _El caracter nulo es indispensable a la hora de inicializar y trabajar de forma correcta con las cadenas. Gracias a este caracter, que no es imprimible, el ordenador puede identificar cuando se termina la cadena, pudiendo diferenciar así entre distintas cadenas._
 
-_Este elemento intrinseco en las cadenas fue implementado por cuestiones de seguridad relacionados con la longitud de la cadena. Si no se añade el caracter nulo al final de cada cadena, los espacios de memoria adyacentes a la cadena seran tratadas tambien como parte de la misma. Esto puede llevar a fallos o fuyugas de informacion interna del programa. Es muy importante que este tipo de errores sean prevenidos._
+_Este elemento intrinseco en las cadenas fue implementado por cuestiones de seguridad relacionados con la longitud de la cadena. Si no se añade el caracter nulo al final de cada cadena, los espacios de memoria adyacentes seran tratados tambien como parte de la misma. Esto puede llevar a fallos o fugas de informacion interna del programa. Es muy importante que este tipo de errores sean prevenidos._
 
 ---
 
@@ -125,15 +125,3 @@ char P[1000] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
 | 212 |   |   |
 | 211 |   |   |
 | 210 |   |   |
-
-
-```
-
-```
-
-## Almacenaje 📦
-Antes de empezar a operar con estas matrices nuevas hay que comprender que representan, como se almacenan en la memoria
-y, a su vez, como se almacenan las cadenas en estas matrices. Para poder almacenar una cadena, la matriz
-que la va a alojar debe ser lo suficientemente larga como para acomodarla dentro de ella, es decir, que
-debe tener la capacidad suficiente para almacenar dentro de ella, al menos, el mismo numero de caracteres
-que la conforman mas uno.
