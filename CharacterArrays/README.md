@@ -41,7 +41,7 @@ de elementos de la cadena._
 
 _Al **declarar** una matriz de caracteres lo que estamos haciendo es reservar un espacio de memoria de
 tamaño igual a la sumatoria del peso de todos sus elementos. Como los elementos que constituyen este
-tipo de matrices son de tipo 'caracter', cada elemento sumara 1 byte de espacio.
+tipo de matrices son de tipo 'caracter', cada elemento sumara 1 byte de espacio._
 
 ### 8.2.1 Memoria RAM 💾
 
