@@ -45,7 +45,7 @@ tipo de matrices son de tipo 'caracter', cada elemento sumara 1 byte de espacio.
 
 ### 8.2.1 Memoria RAM 💾
 
-_Estas tablas representan un espacio ficticio de la memoria RAM reservada por nuestro ordenador cuando se encuentra con la cadena siguiente cadena: 'char C[5]' durante la ejecucion de un programa._
+_Estas tablas representan un espacio ficticio de la memoria RAM reservada por nuestro ordenador cuando se encuentra con la siguiente cadena: 'char C[5]' durante la ejecucion de un programa._
 
 | Direccion | Contenido | Tamaño |
 | --- | --- | --- |
