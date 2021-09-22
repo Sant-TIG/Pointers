@@ -172,7 +172,7 @@ _Esta tabla es una representacion horizontal de la de arriba._
 
 ## Puntero a una Matriz de Caracteres
 
-_Las **matrices** y los **punteros** son distintos tipos de datos que se utilizan de una forma **similar**. 
+_Las **matrices** y los **punteros** son distintos tipos de datos que se utilizan de una forma **similar**. Cuando declaramos un **puntero a una matriz de tipo caracter(char)** y lo inicializamos con la direccion de una matriz, lo que estamos almacenando en el puntero es la primera 
 
 
 
