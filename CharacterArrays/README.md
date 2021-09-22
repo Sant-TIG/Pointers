@@ -78,7 +78,7 @@ _Aqui se puede ver el espacio reservado distribuido por cada elemento que forma 
 
 _Esta tabla es una representacion horizontal de la de arriba._
 
-## 8.3 Inicialización 🖨️
+## 8.3 Inicialización y Memoria 🖨️ 💾
 
 _Hay **dos requisitos** que cumplir a la hora de **inicializar una cadena**:_
 - _Que los elementos que la constituyen la matriz sean caracteres, es decir, de tipo 'caracter(char)._
@@ -94,22 +94,45 @@ _Este elemento intrinseco en las cadenas fue implementado por cuestiones de segu
 
 ---
 
-_Al igual que con el resto de matrices, podemos inicializar estas de distintas maneras siguiendo la estructura comentada anteriormente:_
+_Al igual que con el resto de matrices, podemos **inicializar** estas de distintas maneras siguiendo la estructura comentada anteriormente. Sin embargo, hay algunas que son más efectivas que otras para distintos propositos, y cada una asigna la memoria de forma distinta:_
 
-- _Igualando la matriz a la cadena, asignandole o no un tamaño. De esta manera el caracter nulo viene implicito._
+- _1. Igualando la matriz a la cadena, asignandole o no un tamaño. De esta manera el **caracter nulo** viene **implicito**. En los siguientes ejemplos se comprueba esta regla ya que la longitud de las dos cadenas siempre se mantiene intacta independientemente del tamaño de la matriz, denotando que contienen el caracter nulo de forma implicita. Por otro lado, se puede ver que el caracter nulo no delimita el tamaño del espacio de memoria asignado._
 
 ```
 char C1[] = "cadena", char C2[] = "matriz de caracteres";
-char C1[1000] = "cadena", char C2[1000] = "matriz de caracteres";
+sizeof(C1) = 7 | sizeof(C2) = 21 | strlen(C1) = 6 | strlen(C2) = 20
+char C1[7] = "cadena", char C2[21] = "matriz de caracteres";
+sizeof(C1) = 7 | sizeof(C2) = 21 | strlen(C1) = 6 | strlen(C2) = 20
+char C1[30] = "cadena", char C2[50] = "matriz de caracteres";
+sizeof(C1) = 30 | sizeof(C2) =  50 | strlen(C1) = 6 | strlen(C2) = 20
+
 ```
 
-- _Igualando la matriz a la cadena caracter por caracter. De esta manera si hay que declarar el caracter nulo._
+- _2. Igualando la matriz a la cadena caracter por caracter. De esta manera si hay que **declarar el caracter nulo**. De esta forma tambien queda en evidencia las caracteristicas comentadas anteriormente, mostrando que no importa inicializarlas de forma distinta._
 
 ```
 char C1[] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
-char C1[1000] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
+sizeof(C1) = 7 | strlen(C1) = 6
+char C1[7] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
+sizeof(C1) = 7 | strlen(C1) = 6
+char C1[30] = {'c', 'a', 'd', 'e', 'n', 'a', '\0'};
+sizeof(C1) = 30 | strlen(C1) = 6
 ```
 
+- _3. Declarando la matriz, para despues inicializar cada elemento individualmente con sus debidos indices. De esta manera tambien hay que **declarar el caracter nulo**y vuelve a quedar en evidencia lo anterior. En este caso no podemos declarar la variable sin tamaño, ya que el ordenador no reservaria memoria en ella por lo tanto no existiria ningun indice al que asignar un valor y daria un error de compilacion._
+
+```
+Forma correcta                    | Forma incorrecta
+char C1[7];     char C2[30];      | char C3[]; //imposible de declarar
+C1[0] = 'c';    C1[0] = 'c';      |
+C1[1] = 'a';    C1[1] = 'a';      |
+C1[2] = 'd';    C1[2] = 'd';      |
+C1[3] = 'e';    C1[3] = 'e;       |
+C1[4] = 'n';    C1[4] = 'n';      |
+C1[5] = 'a';    C1[5] = 'a';      |
+C1[6] = '\0';    C1[6] = '\0';    |
+sizeof(C1) = 7 | sizeof(C2) = 30  | strlen(C1) = 6 | strlen(C2) = 6
+```
 ### 8.2.1 Memoria RAM 💾
 
 _Estas tablas representan un espacio ficticio de la memoria RAM reservada por nuestro ordenador cuando se encuentra con la siguiente cadena: 'char C[7] = "cadena"' durante la ejecucion de un programa._
@@ -127,9 +150,9 @@ _Aqui se puede ver que el ordenador reserva un espacio de 7 bytes comprendido en
 | Direccion | Contenido | Elemento | Tamaño |
 | --- | --- | --- | --- |
 | ++ |   |   | ++ |
-| 218 |   |   | 1 byte |
-| 217 | '\0' | C[6] | 1 byte |
-| 217 | 'a' | C[5] | 1 byte |
+| 220 |   |   | 1 byte |
+| 219 | '\0' | C[6] | 1 byte |
+| 218 | 'a' | C[5] | 1 byte |
 | 217 | 'n' | C[4] | 1 byte |
 | 216 | 'e' | C[3] | 1 byte |
 | 215 | 'd' | C[2] | 1 byte |
@@ -146,3 +169,13 @@ _Aqui se puede ver el espacio reservado distribuido por cada elemento que forma 
 | **Valor** |   | 'c' | 'a' | 'd' | 'e' | 'n' | 'a' | '\0' |   |
 
 _Esta tabla es una representacion horizontal de la de arriba._
+
+## Puntero a una Matriz de Caracteres
+
+_Las **matrices** y los **punteros** son distintos tipos de datos que se utilizan de una forma **similar**. 
+
+
+
+
+_Sin importar la manera en la que asignemos la matriz, podemos asignarle el tamaño de tres formas distintas. Si dejamos un espacio vacio, el ordenador asignara automaticamente el tamaño de la cadena que va a almacenar dentro, si le asignamos un tamaño menor que el de la cadena nos dara un error de compilacion, si le asignamos el tamaño justo reservara la memoria justa y si le asignamos un tamaño superior reservará la cantidad de memoria escrita. Este ultimo escenario es util si vamos a expandir la cadena. Si no es el caso, la mejor practica es asignarle el tamaño justo para no tener un espacio de memoria reservado que es innecesario._
+
