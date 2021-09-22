@@ -172,9 +172,30 @@ _Esta tabla es una representacion horizontal de la de arriba._
 
 ## Puntero a una Matriz de Caracteres
 
-_Las **matrices** y los **punteros** son distintos tipos de datos que se utilizan de una forma **similar**. Cuando declaramos un **puntero a una matriz de tipo caracter(char)** y lo inicializamos con la direccion de una matriz, lo que estamos almacenando en el puntero es la primera 
+_Las **matrices** y los **punteros** son distintos tipos de datos que se utilizan de una forma **similar**. Cuando declaramos un **puntero a una matriz de tipo caracter(char)** y lo inicializamos con la direccion de una matriz, lo que estamos almacenando en el puntero es la **direccion base** de la matriz, o lo que es lo mismo, la direccion del primer elemento que la forma. Esto nos va a permitir **dereferenciar** cada elemento de la matriz a la que apunta, ya que el puntero nos va a permitir movernos a traves de ella._
 
+### Declaración
 
+_Los punteros a matrices se **declaran** como siempre, como una variable. La **estructura** que hay que seguir a la hora de declararlos es: **tipo* nombre** o **tipo *nombre**_. 
+
+```
+Ejemplo de declaracion
+char* pca;
+char *pca;
+```
+
+_El **tipo** siempre ha de ser igual al tipo de matriz que estamos apuntando con él, y el **nombre** puede ser el que queramos. Como estamos tratando con una variable y no con una matriz, no hara falta asignarle ningun tamaño. El **espacio de memoria** que ocupará este puntero será de lo que ocupe su tipo, en este caso ocupará 1 byte ya que es de tipo caracter._
+
+## Inicialización
+
+_Como sabemos, el objetivo de un puntero es almacenar la dirección de memoria de otra variable para poder trabajar con ella gracias a la propiedad de los punteros llamada **dereferenciacion**. Por lo tanto, un puntero que apunta a una matriz de caracteres almacenará en la variable la **direccion base** de la matriz a la que apunta. En este caso, no necesitamos utilizar el operador **'&'** ya que al nombrar a la cadena estamos haciendo referencia a su memoria.
+
+```
+char  C1[] = "cadena";  | char C2[] = "matriz de caracteres"
+char* pc1 = C1;           | char *pc2;
+                          | pc2 = C2;
+```
+_Si tomamos como referencia las tablas anteriores, lo que estamos almacenando en el puntero en el primer ejemplo es 
 
 
 _Sin importar la manera en la que asignemos la matriz, podemos asignarle el tamaño de tres formas distintas. Si dejamos un espacio vacio, el ordenador asignara automaticamente el tamaño de la cadena que va a almacenar dentro, si le asignamos un tamaño menor que el de la cadena nos dara un error de compilacion, si le asignamos el tamaño justo reservara la memoria justa y si le asignamos un tamaño superior reservará la cantidad de memoria escrita. Este ultimo escenario es util si vamos a expandir la cadena. Si no es el caso, la mejor practica es asignarle el tamaño justo para no tener un espacio de memoria reservado que es innecesario._
