@@ -1,8 +1,8 @@
-# Introduction to Pointers 📬
+# Almacenamiento de Datos 💽
 
-El concepto de **puntero** es uno de los conceptos que mas claros tenemos que tener a la hora de programar en **C**. Sin embargo, antes de empezar a entenderlos, debemos saber como se almacenan los distintos tipos de datos en la memoria del ordenador. A partir de ahora, **siempre** que hablemos sobre un **espacio de memoria** nos estaremos refiriendo a la memoria que utiliza el ordenador cuando ejecuta un programa, ya que es dentro de esta memoria donde se almacenan los datos e instrucciones que necesita el programa para ejecutarse. A esta memoria se la denomina **Randon Access Memory** o **RAM**.
+El concepto de **punteros** es uno de los conceptos que mas claros tenemos que tener a la hora de programar en **C**. Sin embargo, antes de empezar a entenderlos, debemos saber como se almacenan los distintos tipos de datos en la memoria del ordenador. A partir de ahora, **siempre** que hablemos sobre un **espacio de memoria** nos estaremos refiriendo a la memoria que utiliza el ordenador cuando ejecuta un programa, ya que es dentro de esta memoria donde se almacenan los datos e instrucciones que necesita el programa para ejecutarse. A esta memoria se la denomina **Randon Access Memory** o **RAM**.
 
-## Data Storage 💾
+## Declaración 💾
 
 Cuando durante la **ejecucion de un programa** el ordenador se encuentra con la declaracion de una **variable**, reservará un espacio de memoria cuyo **tamaño** dependerá del **tipo de dato** que sea. Por ejemplo, si se encuentra con una declaracion de una variable **'e'** de tipo **'entero'**, asignará un espacio de memoria para **'e'** del tamaño de **4 bytes**. Si se encontrase con una variable **'c'** de tipo **'caracter'**, asignará un espacio de memoria de **1 byte**.
 
@@ -53,5 +53,26 @@ int  e;
 c = 'a';
 a = 5;
 ```
+Como vemos aqui arriba, hemos **asignado un valor** a las variables de los ejemplos anteriores. A esto se le llama **inicializar una variable**. Ahora, cuando ejecutemos el programa y el ordenador vea la inicializacion de las variables, utilizara la **tabla de busqueda** y vera el **nombre** de la variable, seguido identificará su **tipo** y, finalmente irá a la **direccion guardada** para almacenar el valor asignado en caso de no haber habido ningun error en el transcurso.
 
+---
+
+### Errorres
+
+```
+int  e;
+char c;
+
+e = MAX_INT + 1, e = MIN_INT - 1, e = 'c';
+c = "cadena", c = 31, c = 127;
+```
+
+En este apartado se muestran que tipos de **errores** podriamos tener a la hora de **inicializar una variable** con los ejemplos anteriores:
+<ol>
+  <li>En caso de las <b>variables</b> de tipo <b>entero</b>, si se le da un valor <b>mayor que el maximo valor(2.147.483.647) o menor que el minimo valor(-2.147.483.648)</b> que puede almacenar en 4 bytes, o si le damos un <b>valor de distinto tipo</b> al declarado.</li>
+  <li>En el caso de las <b>variables</b> de tipo <b>caracter</b>, si le damos un <b>valor de distinto tipo</b> al declarado o si le damos un <b>valor numerico menor que 32 o mayor que 126</b> ya que quedarian fuera del rango de caracteres imprimibles en ascii.
+    <ul><li>En este ultimo caso hay que recordar que cuando asignamos un valor numerico a una variable de tipo caracter y este valor esta comprendido entre los caracteres ascii, de 0 a 255, el compilador lo trasladara a su valor de tipo caracter y lo imprimira en caso de ser imprimible.</li></ul>
+  </li>
+  
+---
 Cuando **inicializamos una variable** o le **asignamos un valor**, el ordenador identifica la variable usando la tabla de busqueda comentada anteriormente y rellena el espacio asignado con el valor que le damos. 
