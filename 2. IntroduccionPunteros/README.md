@@ -4,6 +4,10 @@ _Antes de empezar con este apartado, es conveniente haber visto antes el de **Al
 
 ## Definicion
 
+**Un puntero en C y C++ es una variable que almacena la direccion de otra variable.** Esta es realmente la definicion de un puntero. Aunque parece sencilla, el concepto de puntero es uno de los conceptos que mas claros tenemos que tener a la hora de programar en C y C++. 
+
+Se crearon con el proposito de ahorrar espacio en la memoria y lograr un tiempo de ejecucion mas rapido.
+
 Los **punteros** en **C** son variables que **almacenan la direccion de otras variables** y, como son variables, trabajaremos con ellos como lo hemos hecho hasta hora con las variables. Los punteros se crearon con el proposito de ahorrar espacio en la memoria y lograr un tiempo de ejecucion mas rapido.
 
 Estos pueden ser incrementados/decrementados para apuntar al siguiente/anterior bloque de memoria y nos permiten hacer uso de una caracteristica fundamental: la **dereferenciacion**. Gracias a esta propiedad de los punteros podemos **modificar el valor de la variable a la que apunta el puntero**.
