@@ -100,3 +100,13 @@ pe = &e; // pe apunta a e
 e = 5; //Ahora *pe es igual a 5
 *pc = 'z'; //Ahora c es igual a 'z'
 ```
+
+---
+
+## Puntero a Puntero
+
+El ejemplo que mejor explica como funciona la **desreferenciacion** utilizamos el caso de los punteros a punteros. En este ejemplo se crean punteros que apuntan a otros punteros la cantidad de veces se quiera ya que acabaran apuntando a una variable. Por lo tanto, con cada puntero podemos modificar tando los punteros a los que apunta como la variable final.
+
+Todos los punteros que creemos en el proceso se almacenaran como punteros normales, solo que a mas profundidad mayor capacidad de desreferenciacion. Al igual que con un puntero que apunta a una variable, un puntero que apunta a un puntero debera tener el mismo tipo del que apunta.
+
+Para ver de forma grafica como funcionan estos punteros y la desreferenciacion ejecuta el siguiente programa en la terminal: [puntero_a_puntero.c](./punteros_a_punteros.c)
