@@ -30,51 +30,56 @@ Como podemos ver, hay un **nuevo elemento** a la hora de declarar punteros que n
 
 ### Memoria 💾
 
-Esta tabla representa de forma ficticia el espacio que asignaría el ordenador tomarse con ellas durante la ejecucion de un programa.
+Esta tabla representa de forma ficticia el espacio que asignaría el ordenador tomarse con ellas durante la ejecucion de un programa. El ordenador las almacenará como cualquier otra variable, asignandoles el espacio correspondiente en funcion de su tipo.
 
 |  Dirección  | Variable | Tamaño | Declaracion |
 | :---: | :---: | :---: | :---: |
 | ++ |   | 1 byte |   |
 | 130 |   | 1 byte |   |
-| 126 - 129 | e | 4 bytes | `int` |
+| 126 - 129 | e | 4 bytes | `int e` |
 | 125 |   | 1 byte |   |
-| 124 | c = | 1 byte | `char c` |
+| 124 | c | 1 byte | `char c` |
 | 123 |   | 1 byte |   |
 | 122 |   | 1 byte |   |
-| 121 | pe | 1 byte | `int* pe` |
-| 120 |   | 1 byte |   |
-| 119 | pc| 1 byte | `char* pc` |
+| 118-121 | pe | 4 bytes | `int* pe` |
+| 117 |   | 1 byte |   |
+| 116 | pc | 1 byte | `char* pc` |
+| 115 |   | 1 byte |   |
 | -- |   | 1 byte |   |
 
 ## Inicializacion de Punteros. Desreferenciacion.
 
 Independientemente del tipo al que apunte un **puntero**, el **valor** que va a almacenar en el **siempre** va a ser el mismo: un numero largo en hexadecimal que representa la **direccion de memoria de la variable que almacena**. Para **inicializar** un puntero con la direccion de una variable, utilizaremos el operador **'&'** seguido del nombre de la variable que queremos almacenar su direccion.
 
+Al igual que con las variables, podemos **declarar un puntero y asignarle un valor en la misma linea**. Sin embargo, esto solo podemos hacerlo si lo declaramos usando el **segundo modelo de estructura(tipo\* nombre)**. 
 ```
 int   e = 10;
 char  c = 'a';
-int   *pe;
-char* pc = &c;
+int   *pe; //Puntero a un entero, pe
+char* pc = &c; //Puntero a un caracter, pc que apunta a c
 
-pe = &e;
+pe = &e; // pe apunta a e
 ```
+Una vez entendido que para declarar e inicializar un puntero debemos tener una variable del mismo tipo a la que apuntar, que el puntero debe ir con el operador **'\*'** y que debe almacenar dentro la direccion de una variable, podemos analizar su funcionamiento en la memoria con el ejemplo siguiente.
 
-Al igual que con las variables, podemos **declarar un puntero y asignarle un valor en la misma linea**. Sin embargo, esto solo podemos hacerlo si lo declaramos usando el **segundo modelo de estructura(tipo\* nombre)**. Como se puede observar arriba, los **punteros tienen el mismo tipo que las variables a las que apuntan**. Este es el segundo requisito que debemos cumplir a la hora de declararlos e inicializarlos.
+### Memoria
 
-Una vez entendido que para declarar e inicializar un puntero debemos tener una variable del mismo tipo a la que apuntar, que el puntero debe ir con el operador **'\*'** y que debe almacenar dentro la direccion de una variable, podemos analizar su funcionamiento en la memoria con el ejemplo posterior.
+Esta tabla representa de forma ficticia el valor almacenado dentro de las variables anteriores. Se puede ver como dentro de los punteros esan almacenadas las direcciones de las variables a las que apuntan.
 
-### Memoria 💾
+|  Dirección  | Variable | Valor | Tamaño | Declaracion |
+| :---: | :---: | :---: | :---: | :---: |
+| ++ |   |   | 1 byte |   |
+| 130 |   |   | 1 byte |   |
+| 126 - 129 | e | 10 | 4 bytes | `int e = 10` |
+| 125 |   |   | 1 byte |   |
+| 124 | c | 'a' | 1 byte | `char c = 'a'` |
+| 123 |   |   | 1 byte |   |
+| 122 |   |   | 1 byte |   |
+| 118-121 | pe | 126 | 1 byte | `int* pe = &e` |
+| 117 |   |   | 1 byte |   |
+| 116 | pc | 124 | 1 byte | `char* pc = &c` |
+| 115 |   |   | 1 byte |   |
+| -- |   |   | 1 byte |   |
 
-|  Dirección  | Variable | Tamaño | Declaracion |
-| :---: | :---: | :---: | :---: |
-| ++ |   | 1 byte |   |
-| 130 |   | 1 byte |   |
-| 126 - 129 | e | 4 bytes | `int e = 10` |
-| 125 |   | 1 byte |   |
-| 124 | c | 1 byte | `char c = 'a'` |
-| 123 |   | 1 byte |   |
-| 122 |   | 1 byte |   |
-| 121 | pe | 1 byte | `int* pe = &e` |
-| 120 |   | 1 byte |   |
-| 119 | pc | 1 byte | `char* pc = &c` |
-| -- |   | 1 byte |   |
+Una vez entendido que para declarar e inicializar un puntero debemos tener una variable del mismo tipo a la que apuntar, que el puntero debe ir con el operador **'\*'** y que debe almacenar dentro la direccion de una variable, podemos analizar su funcionamiento en la memoria con el ejemplo siguiente.
+
