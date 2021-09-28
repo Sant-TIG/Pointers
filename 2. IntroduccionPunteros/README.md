@@ -83,4 +83,37 @@ _Esta tabla representa de forma ficticia el valor almacenado dentro de las varia
 
 ---
 
-Ahora que hemos sabemos como asignar la direccion de una variable como valor de un puntero, y que lo hemos visto visualmente en la memoria, queda profrundizar en que sucede cuando colocamos el operador **'\*'** antes del nombre de la variable `*pe` o `\pc
+### Desreferenciar una variable
+
+El objetivo de asignar una direccion al valor de un puntero es poder **acceder y modificar el valor de la variable** a la que pertenece esa direccion. A esto de lo denomina **desrefenciar una variable**. Y para acceder a ese valor utilizamos el operador **'\*'** antes del nombre del puntero: **'\*nombre'**. 
+
+Este nuevo elemento es algo parecido a una copia de la variable a la que apunta el puntero pero no ocupa espacio en la memoria ni modifica el valor del puntero. Es una referencia a la variable apuntada. Para entenderlo bien usaremos los casos de las variables anteriores. 
+
+En el momento en el que inicializamos los punteros, estos nuevos elementos tienen el valor inicial de la variables: `*pc = a` y `*pe = 10`. Si modificamos el valor de las variables, el valor de los punteros **'pc'** y **'pe'** tambien cambiará, y si modificamos el valor de los punteros, el valor de las variables tambien cambiará. Como de cierta forma el puntero esta almacenando el valor de la variable a la que apunta ademas de su direccion, este tiene que ser del mismo tipo. Por eso son variables fuertemente tipadas.
+
+### Programa
+
+En el siguiente programa se ponen a prueba todos los conceptos comentados hasta ahora.
+
+#### input
+```
+int main(void)
+{
+  int   e = 10; //declaramos una variable de tipo entero con nombre 'e', y la inicializamos con un valor de 10.
+  char  c = 'a'; //declaramos una variable de tipo caracter con nombre 'c', y la inicializamos con un valor igual al caracter 'a'.
+  int   *pe; //declaramos un puntero a un entero  con nombre *pe
+  char* pc = &c; //declaramos un puntero a un caracter con nombre *pc, e inicializamos la variable pc con la direccion de 'c'
+
+  pe = &e; // inicializamos la variable 'pe' con la direccion de 'e'
+  printf("Comprobacion de memorias\n")
+  printf("La direccion de e es '%d'\t direccion de 
+  printf("*pe = %d\n", *pe);
+  printf("*pa = %c\n", *pc);
+}
+```
+#### output
+```
+*pe = 10
+*pc = a
+```
+
