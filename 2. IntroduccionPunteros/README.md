@@ -109,4 +109,4 @@ El ejemplo que mejor explica como funciona la **desreferenciacion** utilizamos e
 
 Todos los punteros que creemos en el proceso se almacenaran como punteros normales, solo que a mas profundidad mayor capacidad de desreferenciacion. Al igual que con un puntero que apunta a una variable, un puntero que apunta a un puntero debera tener el mismo tipo del que apunta.
 
-Para ver de forma grafica como funcionan estos punteros y la desreferenciacion ejecuta el siguiente programa en la terminal: [puntero_a_puntero.c](./pointer_to_pointers.c)
+Para ver de forma grafica como funcionan estos punteros y la desreferenciacion ejecuta el siguiente programa en un terminal: [puntero_a_puntero.c](./pointer_to_pointers.c)
