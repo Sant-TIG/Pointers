@@ -188,14 +188,14 @@ _El **tipo** siempre ha de ser igual al tipo de matriz que estamos apuntando con
 
 ## Inicialización
 
-_Como sabemos, el objetivo de un puntero es almacenar la dirección de memoria de otra variable para poder trabajar con ella gracias a la propiedad de los punteros llamada **dereferenciacion**. Por lo tanto, un puntero que apunta a una matriz de caracteres almacenará en la variable la **direccion base** de la matriz a la que apunta. En este caso, no necesitamos utilizar el operador **'&'** ya que al nombrar a la cadena estamos haciendo referencia a su memoria.
+_Como sabemos, el objetivo de un puntero es almacenar la dirección de memoria de otra variable para poder trabajar con ella gracias a la propiedad de los punteros llamada **dereferenciacion**. Por lo tanto, un puntero que apunta a una matriz de caracteres almacenará en la variable la **direccion base** de la matriz a la que apunta. En este caso, no necesitamos utilizar el operador **'&'** ya que al nombrar a la cadena estamos haciendo referencia a su memoria._
 
 ```
 char  C1[] = "cadena";  | char C2[] = "matriz de caracteres"
 char* pc1 = C1;           | char *pc2;
                           | pc2 = C2;
 ```
-_Si tomamos como referencia las tablas anteriores, lo que estamos almacenando en el puntero en el primer ejemplo es 
+_Si tomamos como referencia las tablas anteriores, lo que estamos almacenando en el puntero en el primer ejemplo es _
 
 
 _Sin importar la manera en la que asignemos la matriz, podemos asignarle el tamaño de tres formas distintas. Si dejamos un espacio vacio, el ordenador asignara automaticamente el tamaño de la cadena que va a almacenar dentro, si le asignamos un tamaño menor que el de la cadena nos dara un error de compilacion, si le asignamos el tamaño justo reservara la memoria justa y si le asignamos un tamaño superior reservará la cantidad de memoria escrita. Este ultimo escenario es util si vamos a expandir la cadena. Si no es el caso, la mejor practica es asignarle el tamaño justo para no tener un espacio de memoria reservado que es innecesario._
